@@ -14,6 +14,12 @@
 		941E07571AB9BA9D0081FB24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941E07561AB9BA9D0081FB24 /* Images.xcassets */; };
 		941E075A1AB9BA9D0081FB24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */; };
 		941E07661AB9BA9D0081FB24 /* FollowMyDebtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07651AB9BA9D0081FB24 /* FollowMyDebtTests.m */; };
+		941E07711AB9CF530081FB24 /* ListDebtTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */; };
+		941E07761AB9D0080081FB24 /* Debt.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07731AB9D0080081FB24 /* Debt.m */; };
+		941E07771AB9D0080081FB24 /* DebtManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07751AB9D0080081FB24 /* DebtManager.m */; };
+		941E077A1AB9D4300081FB24 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07791AB9D4300081FB24 /* Contact.m */; };
+		941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E077C1AB9D6280081FB24 /* ContactManager.m */; };
+		941E07821AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,18 @@
 		941E075F1AB9BA9D0081FB24 /* FollowMyDebtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowMyDebtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		941E07641AB9BA9D0081FB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941E07651AB9BA9D0081FB24 /* FollowMyDebtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowMyDebtTests.m; sourceTree = "<group>"; };
+		941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDebtTableViewController.h; sourceTree = "<group>"; };
+		941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDebtTableViewController.m; sourceTree = "<group>"; };
+		941E07721AB9D0080081FB24 /* Debt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debt.h; sourceTree = "<group>"; };
+		941E07731AB9D0080081FB24 /* Debt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debt.m; sourceTree = "<group>"; };
+		941E07741AB9D0080081FB24 /* DebtManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebtManager.h; sourceTree = "<group>"; };
+		941E07751AB9D0080081FB24 /* DebtManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebtManager.m; sourceTree = "<group>"; };
+		941E07781AB9D4300081FB24 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		941E07791AB9D4300081FB24 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		941E077B1AB9D6280081FB24 /* ContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactManager.h; sourceTree = "<group>"; };
+		941E077C1AB9D6280081FB24 /* ContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactManager.m; sourceTree = "<group>"; };
+		941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactWithDebtTableViewCell.h; sourceTree = "<group>"; };
+		941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactWithDebtTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +99,17 @@
 		941E07481AB9BA9D0081FB24 /* FollowMyDebt */ = {
 			isa = PBXGroup;
 			children = (
+				941E077E1AB9D9220081FB24 /* Contact */,
+				941E077F1AB9D9330081FB24 /* Debt */,
 				941E074D1AB9BA9D0081FB24 /* AppDelegate.h */,
 				941E074E1AB9BA9D0081FB24 /* AppDelegate.m */,
 				941E07501AB9BA9D0081FB24 /* ViewController.h */,
 				941E07511AB9BA9D0081FB24 /* ViewController.m */,
 				941E07531AB9BA9D0081FB24 /* Main.storyboard */,
+				941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */,
+				941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */,
+				941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */,
+				941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */,
 				941E07561AB9BA9D0081FB24 /* Images.xcassets */,
 				941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */,
 				941E07491AB9BA9D0081FB24 /* Supporting Files */,
@@ -117,6 +141,28 @@
 				941E07641AB9BA9D0081FB24 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		941E077E1AB9D9220081FB24 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				941E07781AB9D4300081FB24 /* Contact.h */,
+				941E07791AB9D4300081FB24 /* Contact.m */,
+				941E077B1AB9D6280081FB24 /* ContactManager.h */,
+				941E077C1AB9D6280081FB24 /* ContactManager.m */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		941E077F1AB9D9330081FB24 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				941E07721AB9D0080081FB24 /* Debt.h */,
+				941E07731AB9D0080081FB24 /* Debt.m */,
+				941E07741AB9D0080081FB24 /* DebtManager.h */,
+				941E07751AB9D0080081FB24 /* DebtManager.m */,
+			);
+			name = Debt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +265,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941E07771AB9D0080081FB24 /* DebtManager.m in Sources */,
 				941E07521AB9BA9D0081FB24 /* ViewController.m in Sources */,
+				941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */,
 				941E074F1AB9BA9D0081FB24 /* AppDelegate.m in Sources */,
+				941E07711AB9CF530081FB24 /* ListDebtTableViewController.m in Sources */,
+				941E077A1AB9D4300081FB24 /* Contact.m in Sources */,
+				941E07821AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m in Sources */,
+				941E07761AB9D0080081FB24 /* Debt.m in Sources */,
 				941E074C1AB9BA9D0081FB24 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -332,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

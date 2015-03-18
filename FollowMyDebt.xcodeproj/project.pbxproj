@@ -100,11 +100,17 @@
 		941E07481AB9BA9D0081FB24 /* FollowMyDebt */ = {
 			isa = PBXGroup;
 			children = (
+				941E077E1AB9D9220081FB24 /* Contact */,
+				941E077F1AB9D9330081FB24 /* Debt */,
 				941E074D1AB9BA9D0081FB24 /* AppDelegate.h */,
 				941E074E1AB9BA9D0081FB24 /* AppDelegate.m */,
 				941E07501AB9BA9D0081FB24 /* ViewController.h */,
 				941E07511AB9BA9D0081FB24 /* ViewController.m */,
 				941E07531AB9BA9D0081FB24 /* Main.storyboard */,
+				941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */,
+				941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */,
+				941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */,
+				941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */,
 				941E07561AB9BA9D0081FB24 /* Images.xcassets */,
 				941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */,
 				941E07491AB9BA9D0081FB24 /* Supporting Files */,
@@ -138,6 +144,28 @@
 				941E07641AB9BA9D0081FB24 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		941E077E1AB9D9220081FB24 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				941E07781AB9D4300081FB24 /* Contact.h */,
+				941E07791AB9D4300081FB24 /* Contact.m */,
+				941E077B1AB9D6280081FB24 /* ContactManager.h */,
+				941E077C1AB9D6280081FB24 /* ContactManager.m */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		941E077F1AB9D9330081FB24 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				941E07721AB9D0080081FB24 /* Debt.h */,
+				941E07731AB9D0080081FB24 /* Debt.m */,
+				941E07741AB9D0080081FB24 /* DebtManager.h */,
+				941E07751AB9D0080081FB24 /* DebtManager.m */,
+			);
+			name = Debt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941E07771AB9D0080081FB24 /* DebtManager.m in Sources */,
 				941E07521AB9BA9D0081FB24 /* ViewController.m in Sources */,
+				941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */,
 				941E074F1AB9BA9D0081FB24 /* AppDelegate.m in Sources */,
 				94842F341AB9C89500CAC170 /* testAddressBookViewController.m in Sources */,
 				941E074C1AB9BA9D0081FB24 /* main.m in Sources */,

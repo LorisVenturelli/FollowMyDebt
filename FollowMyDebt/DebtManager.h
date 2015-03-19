@@ -21,6 +21,8 @@
 @property (readonly) NSUInteger count;
 - (Debt*) debtAtIndex:(NSUInteger)index;
 - (float) amountFor:(Contact*)contact;
+- (NSInteger) countDebtsFor:(Contact*)contact;
+- (Debt*) debtOf:(Contact*)contact atIndex:(NSUInteger)index;
 
 @property (readonly) NSNumber* maximum;
 @property (readonly) NSNumber* minimum;

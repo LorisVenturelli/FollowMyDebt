@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Realm/Realm.h>
+#import <UIKit/UIKit.h>
 
 @interface Contact : RLMObject
 

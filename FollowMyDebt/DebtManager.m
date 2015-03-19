@@ -54,12 +54,44 @@
     float amount = 0.0;
     
     for(Debt* debt in _debts) {
-        if(debt.contact == contact)
-            amount += debt.amount;
+        if(debt.contact == contact){
+            if(debt.debtForMe)
+                amount += debt.amount;
+            else
+                amount -= debt.amount;
+        }
+        
     }
     
     return amount;
     
+}
+- (NSInteger) countDebtsFor:(Contact*)contact {
+    
+    NSInteger count = 0;
+    
+    for(Debt* debt in _debts) {
+        if(debt.contact == contact){
+            count += 1;
+        }
+    }
+    
+    return count;
+}
+
+- (Debt*) debtOf:(Contact*)contact atIndex:(NSUInteger)index {
+    
+    NSUInteger count = -1;
+    
+    for(Debt* debt in _debts) {
+        if(debt.contact == contact){
+            count += 1;
+            if(count == index)
+                return debt;
+        }
+    }
+    
+    return nil;
 }
 
 - (NSNumber*) maximum {

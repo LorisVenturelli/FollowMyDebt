@@ -29,9 +29,9 @@
     [contactMgr addContact:paul];
     [contactMgr addContact:michel];
     
-    [debtMgr addDebt:[Debt debtBy:paul amount:11.50 note:@"Paul me doit du fric"]];
-    [debtMgr addDebt:[Debt debtBy:paul amount:14.58 note:@"Paul me doit du fric"]];
-    [debtMgr addDebt:[Debt debtBy:michel amount:5.0 note:@"Paul me doit du fric"]];
+    [debtMgr addDebt:[Debt debtBy:paul amount:11.50 note:@"Paul me doit du fric" debtForMe:NO]];
+    [debtMgr addDebt:[Debt debtBy:paul amount:14.58 note:@"Paul me doit du fric" debtForMe:NO]];
+    [debtMgr addDebt:[Debt debtBy:michel amount:5.0 note:@"Paul me doit du fric" debtForMe:YES]];
     
     return YES;
 }

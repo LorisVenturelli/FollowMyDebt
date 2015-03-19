@@ -14,9 +14,10 @@
 @property (strong) Contact* contact;
 @property (strong) NSString* note;
 @property (assign) float amount;
+@property (assign) BOOL debtForMe;
 
-+ (Debt*) debtBy:(Contact*)contact amount:(float)amount note:(NSString*)note;
++ (Debt*) debtBy:(Contact*)contact amount:(float)amount note:(NSString*)note debtForMe:(BOOL)debtForMe;
 
-- (instancetype) initDebtBy:(Contact*)contact amount:(float)amount note:(NSString*)note;
+- (instancetype) initDebtBy:(Contact*)contact amount:(float)amount note:(NSString*)note debtForMe:(BOOL)debtForMe;
 
 @end

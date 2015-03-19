@@ -10,6 +10,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 
 @interface ListDebtTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+
 - (IBAction)researchContact:(id)sender;
 
 @end

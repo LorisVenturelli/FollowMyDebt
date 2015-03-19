@@ -11,19 +11,20 @@
 @implementation Debt
 
 // syntaxe d'appel : [[Debt alloc] initWithLabel:label amount:amount]
-- (instancetype) initDebtBy:(Contact*)contact amount:(float)amount note:(NSString*)note {
+- (instancetype) initDebtBy:(Contact*)contact amount:(float)amount note:(NSString*)note debtForMe:(BOOL)debtForMe {
     self = [super init];
     if (self != nil) {
         self.contact = contact;
         self.amount = amount;
         self.note = note;
+        self.debtForMe = debtForMe;
     }
     return self;
 }
 
 // syntaxe d'appel : [Debt expenseWithLabel:label amount:amount]
-+ (Debt*) debtBy:(Contact*)contact amount:(float)amount note:(NSString*)note; {
-    return [[Debt alloc] initDebtBy:(Contact*)contact amount:(float)amount note:(NSString*)note];
++ (Debt*) debtBy:(Contact*)contact amount:(float)amount note:(NSString*)note debtForMe:(BOOL)debtForMe {
+    return [[Debt alloc] initDebtBy:(Contact*)contact amount:(float)amount note:(NSString*)note debtForMe:(BOOL)debtForMe];
 }
 
 @end

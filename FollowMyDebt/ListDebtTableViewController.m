@@ -10,6 +10,7 @@
 #import "ContactManager.h"
 #import "DebtManager.h"
 #import "ContactWithDebtTableViewCell.h"
+#import "ProfileViewController.h"
 
 @interface ListDebtTableViewController ()
 
@@ -24,6 +25,16 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    ProfileViewController* dest = segue.destinationViewController;
+
+    NSInteger cell = self.tableView.indexPathForSelectedRow.row;
+    Contact* contact = [[ContactManager sharedInstance] contactAtIndex:cell];
+        
+    dest.contact = contact;
 }
 
 #pragma mark - Table view data source
@@ -46,7 +57,32 @@
     DebtManager* debts = [DebtManager sharedInstance];
     
     cell.nameContact.text = [NSString stringWithFormat:@"%@ %@", contact.lastname, contact.firstname];
-    cell.amountDebt.text = [NSString stringWithFormat:@"+%@ €", [NSNumber numberWithFloat:[debts amountFor:contact]]];
+    
+    float amount = [debts amountFor:contact];
+    NSString *amountString = [NSString stringWithFormat:@"%0.2f€", amount];
+    
+    if(amount < 0.0){
+        [cell.amountDebt setTextColor:[UIColor redColor]];
+    }
+    else if(amount > 0.0){
+        amountString = [NSString stringWithFormat:@"+%0.2f€", amount];
+        [cell.amountDebt setTextColor:[UIColor greenColor]];
+    }
+    else {
+        [cell.amountDebt setTextColor:[UIColor blueColor]];
+    }
+    
+    cell.amountDebt.text = amountString;
+    
+    CFErrorRef error = nil; // no asterisk
+    ABAddressBookRef addressBook =
+    ABAddressBookCreateWithOptions(NULL, &error); // indirection
+    if (!addressBook) // test the result, not the error
+    {
+        NSLog(@"ERROR!!!");
+    }
+    CFArrayRef arrayOfPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
+    NSLog(@"%@", arrayOfPeople); // let's see how we did
     
     return cell;
 }
@@ -83,10 +119,9 @@
   //__bridge_transfer change un pointeur non Objective-C en un pointeur Objective-C et transfère également la propriété
   //à  ARC qui sera responsale de la gestion mémoire
   NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-
   NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
-
   NSString* phone = nil;
+
   ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
 
   if(ABMultiValueGetCount(phoneNumbers)>0){
@@ -95,35 +130,9 @@
   } else {
     phone = @"[None]";
   }
-
-  [contactMgr addContact:[Contact contactWithFirstName:name lastName:lastName phone:phone]];
-  CFRelease(phoneNumbers);
+        
+    [contactMgr addContact:[Contact contactWithFirstName:name lastName:lastName phone:phone]];
+    CFRelease(phoneNumbers);
 }
-
-
-/*// Called after a person has been selected by the user.
- - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)persons property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
- }*/
-
-/*-(void)displayPerson:(ABRecordRef)person
- {
- //__bridge_transfer change un pointeur non Objective-C en un pointeur Objective-C et transfère également la propriété
- //à  ARC qui sera responsale de la gestion mémoire
- NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
- 
- NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
- 
- NSString* phone = nil;
- ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
- 
- if(ABMultiValueGetCount(phoneNumbers)>0){
- phone = (__bridge_transfer NSString*)
- ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
- } else {
- phone = @"[None]";
- }
- CFRelease(phoneNumbers);
- 
- }*/
 
 @end

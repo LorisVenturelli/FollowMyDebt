@@ -23,6 +23,9 @@
 		94842F431AB9F07000CAC170 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F421AB9F07000CAC170 /* AddressBook.framework */; };
 		94842F451AB9FAE800CAC170 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F441AB9FAE800CAC170 /* Realm.framework */; };
 		94842F471AB9FB6200CAC170 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F461AB9FB6200CAC170 /* libc++.dylib */; };
+		9487F3DE1ABAFBDF007B3A99 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9487F3DD1ABAFBDF007B3A99 /* HistoryTableViewCell.m */; };
+		9487F3E31ABB1FE9007B3A99 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9487F3E21ABB1FE9007B3A99 /* MessageUI.framework */; };
+		948A980D1ABAC108000758B0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A980C1ABAC108000758B0 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,11 @@
 		94842F421AB9F07000CAC170 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		94842F441AB9FAE800CAC170 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		94842F461AB9FB6200CAC170 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		9487F3DC1ABAFBDF007B3A99 /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
+		9487F3DD1ABAFBDF007B3A99 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
+		9487F3E21ABB1FE9007B3A99 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		948A980B1ABAC108000758B0 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ../ProfileViewController.h; sourceTree = "<group>"; };
+		948A980C1ABAC108000758B0 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ../ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9487F3E31ABB1FE9007B3A99 /* MessageUI.framework in Frameworks */,
 				94842F471AB9FB6200CAC170 /* libc++.dylib in Frameworks */,
 				94842F451AB9FAE800CAC170 /* Realm.framework in Frameworks */,
 				94842F431AB9F07000CAC170 /* AddressBook.framework in Frameworks */,
@@ -90,6 +99,7 @@
 		941E073D1AB9BA9D0081FB24 = {
 			isa = PBXGroup;
 			children = (
+				9487F3E21ABB1FE9007B3A99 /* MessageUI.framework */,
 				94842F461AB9FB6200CAC170 /* libc++.dylib */,
 				94842F441AB9FAE800CAC170 /* Realm.framework */,
 				94842F421AB9F07000CAC170 /* AddressBook.framework */,
@@ -112,6 +122,7 @@
 		941E07481AB9BA9D0081FB24 /* FollowMyDebt */ = {
 			isa = PBXGroup;
 			children = (
+				9487F3D81ABAFB0D007B3A99 /* Profile View */,
 				941E077E1AB9D9220081FB24 /* Contact */,
 				941E077F1AB9D9330081FB24 /* Debt */,
 				941E074D1AB9BA9D0081FB24 /* AppDelegate.h */,
@@ -176,6 +187,17 @@
 			name = Debt;
 			sourceTree = "<group>";
 		};
+		9487F3D81ABAFB0D007B3A99 /* Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				948A980B1ABAC108000758B0 /* ProfileViewController.h */,
+				948A980C1ABAC108000758B0 /* ProfileViewController.m */,
+				9487F3DC1ABAFBDF007B3A99 /* HistoryTableViewCell.h */,
+				9487F3DD1ABAFBDF007B3A99 /* HistoryTableViewCell.m */,
+			);
+			name = "Profile View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +247,7 @@
 				TargetAttributes = {
 					941E07451AB9BA9D0081FB24 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8E9H369236;
 					};
 					941E075E1AB9BA9D0081FB24 = {
 						CreatedOnToolsVersion = 6.2;
@@ -277,7 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				941E07771AB9D0080081FB24 /* DebtManager.m in Sources */,
+				948A980D1ABAC108000758B0 /* ProfileViewController.m in Sources */,
 				941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */,
+				9487F3DE1ABAFBDF007B3A99 /* HistoryTableViewCell.m in Sources */,
 				941E074F1AB9BA9D0081FB24 /* AppDelegate.m in Sources */,
 				941E07711AB9CF530081FB24 /* ListDebtTableViewController.m in Sources */,
 				941E077A1AB9D4300081FB24 /* Contact.m in Sources */,
@@ -405,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -419,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

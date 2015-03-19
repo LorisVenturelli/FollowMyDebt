@@ -14,11 +14,16 @@
 		941E07571AB9BA9D0081FB24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941E07561AB9BA9D0081FB24 /* Images.xcassets */; };
 		941E075A1AB9BA9D0081FB24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */; };
 		941E07661AB9BA9D0081FB24 /* FollowMyDebtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07651AB9BA9D0081FB24 /* FollowMyDebtTests.m */; };
-		94842F341AB9C89500CAC170 /* testAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94842F331AB9C89500CAC170 /* testAddressBookViewController.m */; };
-		94842F361AB9D35200CAC170 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F351AB9D35200CAC170 /* AddressBookUI.framework */; };
-		94842F381AB9D35700CAC170 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F371AB9D35700CAC170 /* AddressBook.framework */; };
-		94842F3A1AB9E96800CAC170 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F391AB9E96800CAC170 /* Realm.framework */; };
-		94842F3C1AB9E9CA00CAC170 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F3B1AB9E9CA00CAC170 /* libc++.dylib */; };
+		941E07711AB9CF530081FB24 /* ListDebtTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */; };
+		941E07761AB9D0080081FB24 /* Debt.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07731AB9D0080081FB24 /* Debt.m */; };
+		941E07771AB9D0080081FB24 /* DebtManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07751AB9D0080081FB24 /* DebtManager.m */; };
+		941E077A1AB9D4300081FB24 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07791AB9D4300081FB24 /* Contact.m */; };
+		941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E077C1AB9D6280081FB24 /* ContactManager.m */; };
+		941E07821AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */; };
+		94842F411AB9F06C00CAC170 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F401AB9F06C00CAC170 /* AddressBookUI.framework */; };
+		94842F431AB9F07000CAC170 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F421AB9F07000CAC170 /* AddressBook.framework */; };
+		94842F451AB9FAE800CAC170 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F441AB9FAE800CAC170 /* Realm.framework */; };
+		94842F471AB9FB6200CAC170 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F461AB9FB6200CAC170 /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,12 +50,22 @@
 		941E075F1AB9BA9D0081FB24 /* FollowMyDebtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowMyDebtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		941E07641AB9BA9D0081FB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941E07651AB9BA9D0081FB24 /* FollowMyDebtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowMyDebtTests.m; sourceTree = "<group>"; };
-		94842F321AB9C89500CAC170 /* testAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testAddressBookViewController.h; sourceTree = "<group>"; };
-		94842F331AB9C89500CAC170 /* testAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testAddressBookViewController.m; sourceTree = "<group>"; };
-		94842F351AB9D35200CAC170 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
-		94842F371AB9D35700CAC170 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		94842F391AB9E96800CAC170 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		94842F3B1AB9E9CA00CAC170 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDebtTableViewController.h; sourceTree = "<group>"; };
+		941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDebtTableViewController.m; sourceTree = "<group>"; };
+		941E07721AB9D0080081FB24 /* Debt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debt.h; sourceTree = "<group>"; };
+		941E07731AB9D0080081FB24 /* Debt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debt.m; sourceTree = "<group>"; };
+		941E07741AB9D0080081FB24 /* DebtManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebtManager.h; sourceTree = "<group>"; };
+		941E07751AB9D0080081FB24 /* DebtManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebtManager.m; sourceTree = "<group>"; };
+		941E07781AB9D4300081FB24 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		941E07791AB9D4300081FB24 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		941E077B1AB9D6280081FB24 /* ContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactManager.h; sourceTree = "<group>"; };
+		941E077C1AB9D6280081FB24 /* ContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactManager.m; sourceTree = "<group>"; };
+		941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactWithDebtTableViewCell.h; sourceTree = "<group>"; };
+		941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactWithDebtTableViewCell.m; sourceTree = "<group>"; };
+		94842F401AB9F06C00CAC170 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		94842F421AB9F07000CAC170 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		94842F441AB9FAE800CAC170 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		94842F461AB9FB6200CAC170 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94842F3C1AB9E9CA00CAC170 /* libc++.dylib in Frameworks */,
-				94842F3A1AB9E96800CAC170 /* Realm.framework in Frameworks */,
-				94842F381AB9D35700CAC170 /* AddressBook.framework in Frameworks */,
-				94842F361AB9D35200CAC170 /* AddressBookUI.framework in Frameworks */,
+				94842F471AB9FB6200CAC170 /* libc++.dylib in Frameworks */,
+				94842F451AB9FAE800CAC170 /* Realm.framework in Frameworks */,
+				94842F431AB9F07000CAC170 /* AddressBook.framework in Frameworks */,
+				94842F411AB9F06C00CAC170 /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,10 +93,10 @@
 		941E073D1AB9BA9D0081FB24 = {
 			isa = PBXGroup;
 			children = (
-				94842F3B1AB9E9CA00CAC170 /* libc++.dylib */,
-				94842F391AB9E96800CAC170 /* Realm.framework */,
-				94842F371AB9D35700CAC170 /* AddressBook.framework */,
-				94842F351AB9D35200CAC170 /* AddressBookUI.framework */,
+				94842F461AB9FB6200CAC170 /* libc++.dylib */,
+				94842F441AB9FAE800CAC170 /* Realm.framework */,
+				94842F421AB9F07000CAC170 /* AddressBook.framework */,
+				94842F401AB9F06C00CAC170 /* AddressBookUI.framework */,
 				941E07481AB9BA9D0081FB24 /* FollowMyDebt */,
 				941E07621AB9BA9D0081FB24 /* FollowMyDebtTests */,
 				941E07471AB9BA9D0081FB24 /* Products */,
@@ -114,8 +129,6 @@
 				941E07561AB9BA9D0081FB24 /* Images.xcassets */,
 				941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */,
 				941E07491AB9BA9D0081FB24 /* Supporting Files */,
-				94842F321AB9C89500CAC170 /* testAddressBookViewController.h */,
-				94842F331AB9C89500CAC170 /* testAddressBookViewController.m */,
 			);
 			path = FollowMyDebt;
 			sourceTree = "<group>";
@@ -272,7 +285,10 @@
 				941E07521AB9BA9D0081FB24 /* ViewController.m in Sources */,
 				941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */,
 				941E074F1AB9BA9D0081FB24 /* AppDelegate.m in Sources */,
-				94842F341AB9C89500CAC170 /* testAddressBookViewController.m in Sources */,
+				941E07711AB9CF530081FB24 /* ListDebtTableViewController.m in Sources */,
+				941E077A1AB9D4300081FB24 /* Contact.m in Sources */,
+				941E07821AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m in Sources */,
+				941E07761AB9D0080081FB24 /* Debt.m in Sources */,
 				941E074C1AB9BA9D0081FB24 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,7 +416,6 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FollowMyDebt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -415,7 +430,6 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FollowMyDebt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

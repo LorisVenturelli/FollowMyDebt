@@ -45,55 +45,85 @@
     
     DebtManager* debts = [DebtManager sharedInstance];
     
-    cell.nameContact.text = [NSString stringWithFormat:@"%@ %@", contact.lastname, contact.lastname];
+    cell.nameContact.text = [NSString stringWithFormat:@"%@ %@", contact.lastname, contact.firstname];
     cell.amountDebt.text = [NSString stringWithFormat:@"+%@ €", [NSNumber numberWithFloat:[debts amountFor:contact]]];
     
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (IBAction)researchContact:(id)sender {//On crée un objet de type ABPeoplePickerNavigationController et on l'initialise
+  //implementation which creates a new people picker
+  ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+  picker.peoplePickerDelegate = self;
+  
+  [self presentViewController:picker animated:YES completion:nil];
+  
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)peoplePickerNavigationControllerDidCancel:
+(ABPeoplePickerNavigationController *)peoplePicker
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+// Called after a person has been selected by the user.
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person{
+  
+  [self displayPerson:person];
+  [self dismissViewControllerAnimated:YES completion:nil];
+  
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void)displayPerson:(ABRecordRef)person
+{
+
+  ContactManager* contactMgr = [ContactManager sharedInstance];
+
+  //__bridge_transfer change un pointeur non Objective-C en un pointeur Objective-C et transfère également la propriété
+  //à  ARC qui sera responsale de la gestion mémoire
+  NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+
+  NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+
+  NSString* phone = nil;
+  ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+
+  if(ABMultiValueGetCount(phoneNumbers)>0){
+    phone = (__bridge_transfer NSString*)
+    ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+  } else {
+    phone = @"[None]";
+  }
+
+  [contactMgr addContact:[Contact contactWithFirstName:name lastName:lastName phone:phone]];
+  CFRelease(phoneNumbers);
 }
-*/
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+/*// Called after a person has been selected by the user.
+ - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)persons property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
+ }*/
+
+/*-(void)displayPerson:(ABRecordRef)person
+ {
+ //__bridge_transfer change un pointeur non Objective-C en un pointeur Objective-C et transfère également la propriété
+ //à  ARC qui sera responsale de la gestion mémoire
+ NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+ 
+ NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+ 
+ NSString* phone = nil;
+ ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+ 
+ if(ABMultiValueGetCount(phoneNumbers)>0){
+ phone = (__bridge_transfer NSString*)
+ ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+ } else {
+ phone = @"[None]";
+ }
+ CFRelease(phoneNumbers);
+ 
+ }*/
 
 @end

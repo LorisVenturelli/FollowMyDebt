@@ -7,6 +7,7 @@
 //
 
 #import "ContactManager.h"
+#import <Realm/Realm.h>
 
 
 @implementation ContactManager {
@@ -35,7 +36,14 @@
 - (void) addContact:(Contact *)aContact {
     
     [_contacts insertObject:aContact atIndex:0];
-    
+  
+    RLMRealm *realm = RLMRealm.defaultRealm;
+    [realm beginWriteTransaction];
+    [ContactManager createInRealm:realm withObject:@{@"firstname": aContact.firstname,
+                                                     @"lastname": aContact.lastname,
+                                                     @"phone": aContact.phone}];
+    [realm commitWriteTransaction];
+  
 }
 
 - (void) removeContact:(Contact *)aContact {

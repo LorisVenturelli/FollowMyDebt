@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface ListDebtTableViewController : UITableViewController
+@interface ListDebtTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+- (IBAction)researchContact:(id)sender;
 
 @end

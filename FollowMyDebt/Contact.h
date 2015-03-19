@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface Contact : NSObject
+@interface Contact : RLMObject
 
 @property (strong) NSString* firstname;
 @property (strong) NSString* lastname;

@@ -37,11 +37,12 @@
     
     [_contacts insertObject:aContact atIndex:0];
   
-    RLMRealm *realm = RLMRealm.defaultRealm;
+    RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
-    [ContactManager createInRealm:realm withObject:@{@"firstname": aContact.firstname,
+    [realm addObject:aContact];
+    /*[ContactManager createInRealm:realm withObject:@{@"firstname": aContact.firstname,
                                                      @"lastname": aContact.lastname,
-                                                     @"phone": aContact.phone}];
+                                                     @"phone": aContact.phone}];*/
     [realm commitWriteTransaction];
   
 }

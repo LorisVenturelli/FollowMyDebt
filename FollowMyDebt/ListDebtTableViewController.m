@@ -45,7 +45,7 @@
     
     DebtManager* debts = [DebtManager sharedInstance];
     
-    cell.nameContact.text = [NSString stringWithFormat:@"%@ %@", contact.lastname, contact.lastname];
+    cell.nameContact.text = [NSString stringWithFormat:@"%@ %@", contact.lastname, contact.firstname];
     cell.amountDebt.text = [NSString stringWithFormat:@"+%@ €", [NSNumber numberWithFloat:[debts amountFor:contact]]];
     
     return cell;

@@ -122,16 +122,13 @@
 		941E07481AB9BA9D0081FB24 /* FollowMyDebt */ = {
 			isa = PBXGroup;
 			children = (
+				9441AF7E1ABC5A250033A61D /* Home View */,
 				9487F3D81ABAFB0D007B3A99 /* Profile View */,
 				941E077E1AB9D9220081FB24 /* Contact */,
 				941E077F1AB9D9330081FB24 /* Debt */,
 				941E074D1AB9BA9D0081FB24 /* AppDelegate.h */,
 				941E074E1AB9BA9D0081FB24 /* AppDelegate.m */,
 				941E07531AB9BA9D0081FB24 /* Main.storyboard */,
-				941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */,
-				941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */,
-				941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */,
-				941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */,
 				941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */,
 				9441AF7C1ABC59C40033A61D /* Images.xcassets */,
 				941E07491AB9BA9D0081FB24 /* Supporting Files */,
@@ -185,6 +182,17 @@
 				941E07751AB9D0080081FB24 /* DebtManager.m */,
 			);
 			name = Debt;
+			sourceTree = "<group>";
+		};
+		9441AF7E1ABC5A250033A61D /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */,
+				941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */,
+				941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */,
+				941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */,
+			);
+			name = "Home View";
 			sourceTree = "<group>";
 		};
 		9487F3D81ABAFB0D007B3A99 /* Profile View */ = {

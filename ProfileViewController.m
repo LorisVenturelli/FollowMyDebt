@@ -37,15 +37,18 @@
     NSString *amountString = [NSString stringWithFormat:@"%0.2f€", amount];
     
     if(amount < 0.0){
-        [self.amountProfile setTextColor:[UIColor redColor]];
+        [self.amountProfile setTextColor:[UIColor colorWithRed:237/255.0f green:1/255.0f blue:55/255.0f alpha:1.0f]];
     }
     else if(amount > 0.0){
         amountString = [NSString stringWithFormat:@"+%0.2f€", amount];
-        [self.amountProfile setTextColor:[UIColor greenColor]];
+        [self.amountProfile setTextColor:[UIColor colorWithRed:8/255.0f green:216/255.0f blue:46/255.0f alpha:1.0f]];
     }
     else {
-        [self.amountProfile setTextColor:[UIColor blueColor]];
+        [self.amountProfile setTextColor:[UIColor colorWithRed:8/255.0f green:146/255.0f blue:255/255.0f alpha:1.0f]];
     }
+    
+    if(self.contact.image)
+        self.imageProfile.image = [UIImage imageWithData:self.contact.image];
     
     self.lastnameProfile.text = self.contact.lastname;
     self.firstnameProfile.text = self.contact.firstname;
@@ -125,13 +128,15 @@
     
     if(debt.debtForMe){
         amountString = [NSString stringWithFormat:@"+%0.2f€", debt.amount];
-        [cell.amount setTextColor:[UIColor greenColor]];
+        [cell.amount setTextColor:[UIColor colorWithRed:8/255.0f green:216/255.0f blue:46/255.0f alpha:1.0f]];
     }
     else {
-        [cell.amount setTextColor:[UIColor redColor]];
+        [cell.amount setTextColor:[UIColor colorWithRed:237/255.0f green:1/255.0f blue:55/255.0f alpha:1.0f]];
     }
     
+    
     [cell setBackgroundColor:[UIColor clearColor]];
+    
     if(debt.isRemboursed)
         [cell setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.05]];
     
@@ -139,6 +144,20 @@
     cell.amount.text = amountString;
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        
+        DebtManager *debtMgr = [DebtManager sharedInstance];
+        Debt* debt = [debtMgr debtOf:self.contact atIndex:indexPath.row];
+    
+        [debtMgr removeDebt:debt];
+        [self.HistoryTableView reloadData];
+        [self refreshDataView];
+    }
+}
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     NSInteger cell = self.HistoryTableView.indexPathForSelectedRow.row;

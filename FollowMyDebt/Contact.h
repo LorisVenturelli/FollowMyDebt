@@ -15,6 +15,7 @@
 @property (strong) NSString* firstname;
 @property (strong) NSString* lastname;
 @property (strong) NSString* phone;
+@property (strong) NSData* image;
 
 + (Contact*) contactWithFirstName:(NSString*)firstname lastName:(NSString*)lastname phone:(NSString*)phone;
 

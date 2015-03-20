@@ -12,7 +12,7 @@
 
 @interface ProfileViewController : UIViewController <UITableViewDataSource,MFMessageComposeViewControllerDelegate,UITabBarControllerDelegate,UITabBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageProfile;
+@property (nonatomic, retain) IBOutlet UIImageView *imageProfile;
 @property (weak, nonatomic) IBOutlet UILabel *lastnameProfile;
 @property (weak, nonatomic) IBOutlet UILabel *firstnameProfile;
 @property (weak, nonatomic) IBOutlet UILabel *phoneProfile;

@@ -58,18 +58,21 @@
     
     cell.nameContact.text = [NSString stringWithFormat:@"%@ %@", contact.lastname, contact.firstname];
     
+    if(contact.image != nil)
+        cell.image.image = [UIImage imageWithData:contact.image];
+    
     float amount = [debts amountFor:contact];
     NSString *amountString = [NSString stringWithFormat:@"%0.2f€", amount];
     
     if(amount < 0.0){
-        [cell.amountDebt setTextColor:[UIColor redColor]];
+        [cell.amountDebt setTextColor:[UIColor colorWithRed:237/255.0f green:1/255.0f blue:55/255.0f alpha:1.0f]];
     }
     else if(amount > 0.0){
         amountString = [NSString stringWithFormat:@"+%0.2f€", amount];
-        [cell.amountDebt setTextColor:[UIColor greenColor]];
+        [cell.amountDebt setTextColor:[UIColor colorWithRed:8/255.0f green:216/255.0f blue:46/255.0f alpha:1.0f]];
     }
     else {
-        [cell.amountDebt setTextColor:[UIColor blueColor]];
+        [cell.amountDebt setTextColor:[UIColor colorWithRed:8/255.0f green:146/255.0f blue:255/255.0f alpha:1.0f]];
     }
     
     cell.amountDebt.text = amountString;
@@ -113,35 +116,49 @@
 
 -(void)displayPerson:(ABRecordRef)person
 {
+    ContactManager* contactMgr = [ContactManager sharedInstance];
 
-  ContactManager* contactMgr = [ContactManager sharedInstance];
-
-  //__bridge_transfer change un pointeur non Objective-C en un pointeur Objective-C et transfère également la propriété
-  //à  ARC qui sera responsale de la gestion mémoire
-  NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-  NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
-  NSString* phone = nil;
-
-  ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
-
-  if(ABMultiValueGetCount(phoneNumbers)>0){
-    phone = (__bridge_transfer NSString*)
-    ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
-  } else {
-    phone = @"[None]";
-  }
+    //__bridge_transfer change un pointeur non Objective-C en un pointeur Objective-C et transfère également la propriété
+    //à  ARC qui sera responsale de la gestion mémoire
     
-    if(name!=nil && lastName!=nil && phone!=nil){
-        Contact* newContact = [[Contact alloc]init];
-        newContact.firstname = name;
-        newContact.lastname = lastName;
-        newContact.phone = phone;
-        
-        [contactMgr addContact:newContact];
-        [self.tableView reloadData];
+    NSString* name = @"Non renseigné";
+    NSString* lastName = @"Non renseigné";
+    NSString* phone = @"Non renseigné";
+    NSData *imgData = UIImageJPEGRepresentation([UIImage imageNamed:@"avatar.jpg"],0.0);
+
+    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    
+    // Firstname
+    if(ABRecordCopyValue(person, kABPersonFirstNameProperty) != nil){
+        name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     }
     
-    CFRelease(phoneNumbers);
+    // Lastname
+    if(ABRecordCopyValue(person, kABPersonLastNameProperty) != nil){
+        lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    }
+    
+    // Phone
+    if(ABMultiValueGetCount(phoneNumbers)>0){
+        phone = (__bridge_transfer NSString*)
+        ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+    }
+    if (phoneNumbers != NULL)
+        CFRelease(phoneNumbers);
+    
+    // Image
+    if( ABPersonHasImageData( person ) ) {
+        imgData = (__bridge_transfer NSData *) ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
+    }
+    
+    Contact* newContact = [[Contact alloc]init];
+    newContact.firstname = name;
+    newContact.lastname = lastName;
+    newContact.phone = phone;
+    newContact.image = imgData;
+    
+    [contactMgr addContact:newContact];
+    [self.tableView reloadData];
     
 }
 

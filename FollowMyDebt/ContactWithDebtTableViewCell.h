@@ -10,7 +10,7 @@
 
 @interface ContactWithDebtTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageContact;
+@property (nonatomic, retain) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *nameContact;
 @property (weak, nonatomic) IBOutlet UILabel *amountDebt;
 

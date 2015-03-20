@@ -19,45 +19,44 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IiI-r0-OeR" id="iRV-Cs-JAJ">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom Prénom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOl-js-FHN">
-                                            <rect key="frame" x="98" y="8" width="361" height="71"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="JmC-cM-nWR">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="87"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="GTY-XG-eWL"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 40 €" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-df-PVi">
-                                            <rect key="frame" x="459" y="8" width="100" height="71"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+ 40 €" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-df-PVi">
+                                            <rect key="frame" x="200" y="0.0" width="359" height="87"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="w1H-gu-v2y"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="h6o-dH-my8"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.21176470589999999" green="0.58039215690000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nom Prénom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOl-js-FHN">
+                                            <rect key="frame" x="98" y="0.0" width="102" height="87"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="hQR-df-PVi" firstAttribute="top" secondItem="iRV-Cs-JAJ" secondAttribute="topMargin" id="2HV-YH-moF"/>
-                                        <constraint firstAttribute="centerY" secondItem="hQR-df-PVi" secondAttribute="centerY" id="B8L-11-UHy"/>
-                                        <constraint firstItem="hQR-df-PVi" firstAttribute="trailing" secondItem="iRV-Cs-JAJ" secondAttribute="trailingMargin" id="fy3-Za-igc"/>
+                                        <constraint firstItem="hQR-df-PVi" firstAttribute="leading" secondItem="pOl-js-FHN" secondAttribute="trailing" id="3rw-Hz-Ihp"/>
+                                        <constraint firstItem="JmC-cM-nWR" firstAttribute="height" secondItem="pOl-js-FHN" secondAttribute="height" id="AzZ-At-EsT"/>
+                                        <constraint firstItem="hQR-df-PVi" firstAttribute="trailing" secondItem="iRV-Cs-JAJ" secondAttribute="trailingMargin" id="Fgu-a4-ff9"/>
+                                        <constraint firstItem="pOl-js-FHN" firstAttribute="height" secondItem="hQR-df-PVi" secondAttribute="height" id="SC5-9f-j6N"/>
+                                        <constraint firstItem="pOl-js-FHN" firstAttribute="centerY" secondItem="hQR-df-PVi" secondAttribute="centerY" id="Uyl-ZP-3is"/>
+                                        <constraint firstItem="pOl-js-FHN" firstAttribute="leading" secondItem="JmC-cM-nWR" secondAttribute="trailing" constant="8" id="Yh4-ir-GYS"/>
                                         <constraint firstItem="JmC-cM-nWR" firstAttribute="leading" secondItem="iRV-Cs-JAJ" secondAttribute="leading" id="lKB-Ew-joX"/>
-                                        <constraint firstItem="pOl-js-FHN" firstAttribute="leading" secondItem="JmC-cM-nWR" secondAttribute="trailing" constant="8" symbolic="YES" id="nMg-9h-eWV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="pOl-js-FHN" secondAttribute="bottom" id="olR-Tg-1b2"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="hQR-df-PVi" secondAttribute="bottom" id="op4-hq-FGk"/>
+                                        <constraint firstItem="JmC-cM-nWR" firstAttribute="centerY" secondItem="pOl-js-FHN" secondAttribute="centerY" id="mLe-VP-O0f"/>
                                         <constraint firstItem="JmC-cM-nWR" firstAttribute="top" secondItem="iRV-Cs-JAJ" secondAttribute="top" id="ryP-8W-e9U"/>
-                                        <constraint firstItem="hQR-df-PVi" firstAttribute="leading" secondItem="pOl-js-FHN" secondAttribute="trailing" id="tfi-61-C6J"/>
-                                        <constraint firstItem="pOl-js-FHN" firstAttribute="top" secondItem="iRV-Cs-JAJ" secondAttribute="topMargin" id="xfd-4L-h4A"/>
                                         <constraint firstAttribute="bottom" secondItem="JmC-cM-nWR" secondAttribute="bottom" id="zLy-Gf-RTo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="amountDebt" destination="hQR-df-PVi" id="Tmj-i5-MKK"/>
-                                    <outlet property="imageContact" destination="JmC-cM-nWR" id="Nhp-6Z-Q4Z"/>
+                                    <outlet property="image" destination="JmC-cM-nWR" id="sYL-Ob-MZe"/>
                                     <outlet property="nameContact" destination="pOl-js-FHN" id="4dU-th-uUQ"/>
                                     <segue destination="HbT-Bh-0Qo" kind="show" id="sdi-On-Cn0"/>
                                 </connections>

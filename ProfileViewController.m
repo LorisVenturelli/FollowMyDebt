@@ -70,8 +70,6 @@
     else {
         [self popupAddDebtSetHidden:NO];
     }
-    [self showSMS];
-    
 }
 - (IBAction)saveNewDebt:(id)sender {
     [self popupAddDebtSetHidden:YES];
@@ -116,10 +114,21 @@
         [cell.amount setTextColor:[UIColor redColor]];
     }
     
+    [cell setBackgroundColor:[UIColor clearColor]];
+    if(debt.isRemboursed)
+        [cell setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.05]];
+    
     cell.note.text = debt.note;
     cell.amount.text = amountString;
-    
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSInteger cell = self.HistoryTableView.indexPathForSelectedRow.row;
+    Debt* debt = [[DebtManager sharedInstance] debtOf:self.contact atIndex:indexPath.row];
+    [[DebtManager sharedInstance] debtIsRemboused:debt];
+    [self refreshDataView];
+    [self.HistoryTableView reloadData];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
@@ -170,7 +179,7 @@
         [[UIApplication sharedApplication] openURL:phoneUrl];
     }
     else
-        NSLog(@"Ne peux pas lancer l'application Phone");
+        NSLog(@"Votre device ne peux pas lancer l'application Phone");
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -182,7 +191,23 @@
         [self callContact];
     }
     else if (item.tag==2) {
-        NSLog(@"Tab 2");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmer"
+                                                        message:@"Confirmez-vous le remboursement de toutes les dettes ?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Non"
+                                              otherButtonTitles:@"Oui", nil];
+        [alert show];
+    }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch(buttonIndex) {
+        case 0:
+            break;
+        case 1: //"Yes" pressed
+            [[DebtManager sharedInstance] debtsAllRemboursedOf:self.contact];
+            [self refreshDataView];
+            [self.HistoryTableView reloadData];
+            break;
     }
 }
 

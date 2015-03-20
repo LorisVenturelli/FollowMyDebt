@@ -54,7 +54,7 @@
     float amount = 0.0;
     
     for(Debt* debt in _debts) {
-        if(debt.contact == contact){
+        if(debt.contact == contact && debt.isRemboursed == NO){
             if(debt.debtForMe)
                 amount += debt.amount;
             else
@@ -92,6 +92,18 @@
     }
     
     return nil;
+}
+
+-(void) debtIsRemboused:(Debt*)debt {
+    debt.isRemboursed = YES;
+}
+
+-(void) debtsAllRemboursedOf:(Contact*)contact {
+    for(Debt* debt in _debts) {
+        if(debt.contact == contact){
+            [self debtIsRemboused:debt];
+        }
+    }
 }
 
 - (NSNumber*) maximum {

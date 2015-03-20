@@ -15,6 +15,7 @@
 @property (strong) NSString* note;
 @property (assign) float amount;
 @property (assign) BOOL debtForMe;
+@property (assign) BOOL isRemboursed;
 
 + (Debt*) debtBy:(Contact*)contact amount:(float)amount note:(NSString*)note debtForMe:(BOOL)debtForMe;
 

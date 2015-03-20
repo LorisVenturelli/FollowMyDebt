@@ -18,6 +18,7 @@
         self.amount = amount;
         self.note = note;
         self.debtForMe = debtForMe;
+        self.isRemboursed = NO;
     }
     return self;
 }

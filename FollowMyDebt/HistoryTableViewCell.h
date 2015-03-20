@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HistoryTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *date;
 @property (weak, nonatomic) IBOutlet UILabel *note;
 @property (weak, nonatomic) IBOutlet UILabel *amount;
 

@@ -23,6 +23,8 @@
 - (float) amountFor:(Contact*)contact;
 - (NSInteger) countDebtsFor:(Contact*)contact;
 - (Debt*) debtOf:(Contact*)contact atIndex:(NSUInteger)index;
+- (void) debtIsRemboused:(Debt*)debt;
+- (void) debtsAllRemboursedOf:(Contact*)contact;
 
 @property (readonly) NSNumber* maximum;
 @property (readonly) NSNumber* minimum;

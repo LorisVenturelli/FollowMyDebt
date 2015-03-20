@@ -11,14 +11,14 @@
 
 
 @implementation ContactManager {
-    NSMutableArray* _contacts;
+    RLMResults* _contacts;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _contacts = [[NSMutableArray alloc] init];
+        _contacts = [Contact allObjects];
     }
     return self;
 }
@@ -34,33 +34,36 @@
 }
 
 - (void) addContact:(Contact *)aContact {
-    
-    [_contacts insertObject:aContact atIndex:0];
   
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     [realm addObject:aContact];
-    /*[ContactManager createInRealm:realm withObject:@{@"firstname": aContact.firstname,
-                                                     @"lastname": aContact.lastname,
-                                                     @"phone": aContact.phone}];*/
     [realm commitWriteTransaction];
+    
+    _contacts = [Contact allObjects];
   
 }
 
 - (void) removeContact:(Contact *)aContact {
-    [_contacts removeObject:aContact];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm deleteObject:aContact];
+    [realm commitWriteTransaction];
+    
+    _contacts = [Contact allObjects];
 }
 
 - (NSUInteger) count {
+    if(_contacts == nil)
+        return 0;
+    
     return _contacts.count;
 }
 
 - (Contact*) contactAtIndex:(NSUInteger)index {
+    _contacts = [Contact allObjects];
+    NSLog(@"All contacts : %@", _contacts);
     return [_contacts objectAtIndex:index];
-}
-
--(void)removeAllContact {
-    [_contacts removeAllObjects];
 }
 
 

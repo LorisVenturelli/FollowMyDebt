@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940882231ABC12EB00FA39FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940882221ABC12EB00FA39FD /* Images.xcassets */; };
 		941E074C1AB9BA9D0081FB24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E074B1AB9BA9D0081FB24 /* main.m */; };
 		941E074F1AB9BA9D0081FB24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E074E1AB9BA9D0081FB24 /* AppDelegate.m */; };
 		941E07551AB9BA9D0081FB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941E07531AB9BA9D0081FB24 /* Main.storyboard */; };
-		941E07571AB9BA9D0081FB24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941E07561AB9BA9D0081FB24 /* Images.xcassets */; };
 		941E075A1AB9BA9D0081FB24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */; };
 		941E07661AB9BA9D0081FB24 /* FollowMyDebtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07651AB9BA9D0081FB24 /* FollowMyDebtTests.m */; };
 		941E07711AB9CF530081FB24 /* ListDebtTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */; };
@@ -39,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		940882221ABC12EB00FA39FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../../.Trash/Images.xcassets; sourceTree = "<group>"; };
 		941E07461AB9BA9D0081FB24 /* FollowMyDebt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowMyDebt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941E074A1AB9BA9D0081FB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941E074B1AB9BA9D0081FB24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		941E074D1AB9BA9D0081FB24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		941E074E1AB9BA9D0081FB24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		941E07541AB9BA9D0081FB24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		941E07561AB9BA9D0081FB24 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		941E07591AB9BA9D0081FB24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		941E075F1AB9BA9D0081FB24 /* FollowMyDebtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowMyDebtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		941E07641AB9BA9D0081FB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */,
 				941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */,
 				941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */,
-				941E07561AB9BA9D0081FB24 /* Images.xcassets */,
 				941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */,
+				940882221ABC12EB00FA39FD /* Images.xcassets */,
 				941E07491AB9BA9D0081FB24 /* Supporting Files */,
 			);
 			path = FollowMyDebt;
@@ -279,9 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				940882231ABC12EB00FA39FD /* Images.xcassets in Resources */,
 				941E07551AB9BA9D0081FB24 /* Main.storyboard in Resources */,
 				941E075A1AB9BA9D0081FB24 /* LaunchScreen.xib in Resources */,
-				941E07571AB9BA9D0081FB24 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

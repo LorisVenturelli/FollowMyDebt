@@ -9,14 +9,14 @@
 #import "DebtManager.h"
 
 @implementation DebtManager {
-    NSMutableArray* _debts;
+    RLMResults* _debts;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _debts = [[NSMutableArray alloc] init];
+        _debts = [Debt allObjects];
     }
     return self;
 }
@@ -33,19 +33,39 @@
 
 - (void) addDebt:(Debt *)aDebt {
     
-    [_debts insertObject:aDebt atIndex:0];
+    RLMRealm *realm = [RLMRealm defaultRealm];
     
+    aDebt.isRemboursed = NO;
+    
+    [realm beginWriteTransaction];
+    [realm addObject:aDebt];
+    [realm commitWriteTransaction];
+    
+    _debts = [Debt allObjects];
+    
+    NSLog(@"Add debt : %@",_debts);
 }
 
 - (void) removeDebt:(Debt *)aDebt {
-    [_debts removeObject:aDebt];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm deleteObject:aDebt];
+    [realm commitWriteTransaction];
+    
+    _debts = [Debt allObjects];
+    
+    NSLog(@"Remove debt : %@",_debts);
 }
 
 - (NSUInteger) count {
-    return _debts.count;
+    if(_debts != nil)
+        return _debts.count;
+    return 0;
 }
 
 - (Debt*) debtAtIndex:(NSUInteger)index {
+    _debts = [Debt allObjects];
     return [_debts objectAtIndex:index];
 }
 
@@ -54,7 +74,7 @@
     float amount = 0.0;
     
     for(Debt* debt in _debts) {
-        if(debt.contact == contact && debt.isRemboursed == NO){
+        if([debt.contact.phone isEqualToString:contact.phone] && debt.isRemboursed == NO){
             if(debt.debtForMe)
                 amount += debt.amount;
             else
@@ -67,11 +87,11 @@
     
 }
 - (NSInteger) countDebtsFor:(Contact*)contact {
-    
+    _debts = [Debt allObjects];
     NSInteger count = 0;
     
     for(Debt* debt in _debts) {
-        if(debt.contact == contact){
+        if([debt.contact.phone isEqualToString:contact.phone]){
             count += 1;
         }
     }
@@ -80,11 +100,11 @@
 }
 
 - (Debt*) debtOf:(Contact*)contact atIndex:(NSUInteger)index {
-    
+    _debts = [Debt allObjects];
     NSUInteger count = -1;
     
     for(Debt* debt in _debts) {
-        if(debt.contact == contact){
+        if([debt.contact.phone isEqualToString:contact.phone]){
             count += 1;
             if(count == index)
                 return debt;
@@ -95,12 +115,18 @@
 }
 
 -(void) debtIsRemboused:(Debt*)debt {
+    _debts = [Debt allObjects];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
     debt.isRemboursed = YES;
+    [realm commitWriteTransaction];
 }
 
 -(void) debtsAllRemboursedOf:(Contact*)contact {
+    _debts = [Debt allObjects];
     for(Debt* debt in _debts) {
-        if(debt.contact == contact){
+        if([debt.contact.phone isEqualToString:contact.phone]){
             [self debtIsRemboused:debt];
         }
     }
@@ -152,15 +178,6 @@
     }
     
     return [NSNumber numberWithFloat:sum/_debts.count];
-}
-
-- (void) removeAllDebts {
-    [_debts removeAllObjects];
-//    for (int i = 0; i < [self count]; i++)
-//    {
-//        Debt* exp = [self debtAtIndex:i];
-//        [self removeDebt:exp];
-//    }
 }
 
 @end

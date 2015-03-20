@@ -130,9 +130,29 @@
   } else {
     phone = @"[None]";
   }
+    
+    if(name!=nil && lastName!=nil && phone!=nil){
+        Contact* newContact = [[Contact alloc]init];
+        newContact.firstname = name;
+        newContact.lastname = lastName;
+        newContact.phone = phone;
         
-    [contactMgr addContact:[Contact contactWithFirstName:name lastName:lastName phone:phone]];
+        [contactMgr addContact:newContact];
+        [self.tableView reloadData];
+    }
+    
     CFRelease(phoneNumbers);
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        self.lastIndexPath = indexPath;
+        ContactManager *contactMgr = [ContactManager sharedInstance];
+        [contactMgr removeContact:[contactMgr contactAtIndex:self.lastIndexPath.row]];
+        [self.tableView reloadData];
+    }
 }
 
 @end

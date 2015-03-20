@@ -20,7 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UITabBar *TabBar;
 
-@property (weak, nonatomic) Contact *contact;
+@property (strong) Contact *contact;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addDebtButton;
 - (IBAction)addDebt:(id)sender;
 
@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *debtInOut;
 @property (weak, nonatomic) IBOutlet UITextField *amountNewDebt;
+@property (weak, nonatomic) IBOutlet UITextField *titleNewDebt;
 - (IBAction)saveNewDebt:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *HistoryTableView;
 

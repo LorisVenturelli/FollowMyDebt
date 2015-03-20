@@ -16,8 +16,6 @@
 - (void) addDebt:(Debt*)aDebt;
 - (void) removeDebt:(Debt*)aDebt;
 
-- (void) removeAllDebts;
-
 @property (readonly) NSUInteger count;
 - (Debt*) debtAtIndex:(NSUInteger)index;
 - (float) amountFor:(Contact*)contact;

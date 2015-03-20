@@ -16,8 +16,6 @@
 - (void) addContact:(Contact*)aContact;
 - (void) removeContact:(Contact*)aContact;
 
-- (void) removeAllContact;
-
 @property (readonly) NSUInteger count;
 - (Contact*) contactAtIndex:(NSUInteger)index;
 

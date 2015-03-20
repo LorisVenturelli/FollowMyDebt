@@ -20,19 +20,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    ContactManager* contactMgr = [ContactManager sharedInstance];
-    DebtManager* debtMgr = [DebtManager sharedInstance];
-    
-    Contact* paul = [Contact contactWithFirstName:@"paul" lastName:@"LePoulpe" phone:@"0839283928"];
-    Contact* michel = [Contact contactWithFirstName:@"Jean michel" lastName:@"Maire" phone:@"4982398"];
-    
-    [contactMgr addContact:paul];
-    [contactMgr addContact:michel];
-    
-    [debtMgr addDebt:[Debt debtBy:paul amount:11.50 note:@"Paul me doit du fric" debtForMe:NO]];
-    [debtMgr addDebt:[Debt debtBy:paul amount:14.58 note:@"Paul me doit du fric" debtForMe:NO]];
-    [debtMgr addDebt:[Debt debtBy:michel amount:5.0 note:@"Paul me doit du fric" debtForMe:YES]];
-    
     return YES;
 }
 

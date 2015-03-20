@@ -28,6 +28,8 @@
     [self refreshDataView];
     [self.HistoryTableView reloadData];
     
+    NSLog(@"%@", self.contact);
+    
 }
 -(void)refreshDataView{
     float amount = [[DebtManager sharedInstance] amountFor:self.contact];
@@ -55,8 +57,12 @@
     [self.blackFilter setHidden:hidden];
     [self.popupNewDebt setHidden:hidden];
     
-    if(hidden)
+    if(hidden) {
         self.addDebtButton.title = @"Nouvelle dette";
+        
+        self.amountNewDebt.text = @"";
+        self.titleNewDebt.text = @"";
+    }
     else
         self.addDebtButton.title = @"Fermer";
     
@@ -72,18 +78,29 @@
     }
 }
 - (IBAction)saveNewDebt:(id)sender {
+    
+    if(![self.amountNewDebt.text isEqual: @""] && ![self.titleNewDebt.text isEqual: @""]){
+        
+        BOOL debtForMe = YES;
+        
+        if(self.debtInOut.selectedSegmentIndex == 0)
+            debtForMe = NO;
+        
+        DebtManager *debtMgr = [DebtManager sharedInstance];
+        
+        Debt* newDebt = [[Debt alloc] init];
+        newDebt.contact = self.contact;
+        newDebt.amount = self.amountNewDebt.text.floatValue;
+        newDebt.note = self.titleNewDebt.text;
+        newDebt.debtForMe = debtForMe;
+        [debtMgr addDebt:newDebt];
+        
+        [self refreshDataView];
+        [self.HistoryTableView reloadData];
+        
+    }
+    
     [self popupAddDebtSetHidden:YES];
-    
-    BOOL debtForMe = YES;
-    
-    if(self.debtInOut.selectedSegmentIndex == 0)
-        debtForMe = NO;
-    
-    DebtManager *debtMgr = [DebtManager sharedInstance];
-    [debtMgr addDebt:[Debt debtBy:self.contact amount:self.amountNewDebt.text.floatValue note:@"Note by popup" debtForMe:(BOOL)debtForMe]];
-    
-    [self refreshDataView];
-    [self.HistoryTableView reloadData];
     
 }
 
@@ -122,13 +139,21 @@
     cell.amount.text = amountString;
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    //NSInteger cell = self.HistoryTableView.indexPathForSelectedRow.row;
-    Debt* debt = [[DebtManager sharedInstance] debtOf:self.contact atIndex:indexPath.row];
-    [[DebtManager sharedInstance] debtIsRemboused:debt];
-    [self refreshDataView];
-    [self.HistoryTableView reloadData];
+    NSInteger cell = self.HistoryTableView.indexPathForSelectedRow.row;
+    Debt* debt = [[DebtManager sharedInstance] debtOf:self.contact atIndex:cell];
+    if(debt.isRemboursed == NO){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmer"
+                                                    message:@"Confirmez-vous le reboursement de cette dette ?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Non"
+                                          otherButtonTitles:@"Oui", nil];
+        [alert setTag:0];
+        [alert show];
+    }
+    
+    return NO;
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
@@ -196,6 +221,7 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Non"
                                               otherButtonTitles:@"Oui", nil];
+        [alert setTag:1];
         [alert show];
     }
 }
@@ -204,7 +230,14 @@
         case 0:
             break;
         case 1: //"Yes" pressed
-            [[DebtManager sharedInstance] debtsAllRemboursedOf:self.contact];
+            if(alertView.tag == 1){
+                [[DebtManager sharedInstance] debtsAllRemboursedOf:self.contact];
+            }
+            else if(alertView.tag == 0){
+                NSInteger cell = self.HistoryTableView.indexPathForSelectedRow.row;
+                Debt* debt = [[DebtManager sharedInstance] debtOf:self.contact atIndex:cell];
+                [[DebtManager sharedInstance] debtIsRemboused:debt];
+            }
             [self refreshDataView];
             [self.HistoryTableView reloadData];
             break;

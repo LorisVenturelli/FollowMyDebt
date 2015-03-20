@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 #import "Contact.h"
 
-@interface Debt : NSObject
+@interface Debt : RLMObject
 
-@property (strong) Contact* contact;
+@property Contact* contact;
 @property (strong) NSString* note;
 @property (assign) float amount;
 @property (assign) BOOL debtForMe;

@@ -12,5 +12,6 @@
 @interface ListDebtTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
 - (IBAction)researchContact:(id)sender;
+@property (strong) NSIndexPath* lastIndexPath;
 
 @end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		940882231ABC12EB00FA39FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940882221ABC12EB00FA39FD /* Images.xcassets */; };
 		941E074C1AB9BA9D0081FB24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E074B1AB9BA9D0081FB24 /* main.m */; };
 		941E074F1AB9BA9D0081FB24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E074E1AB9BA9D0081FB24 /* AppDelegate.m */; };
 		941E07551AB9BA9D0081FB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941E07531AB9BA9D0081FB24 /* Main.storyboard */; };
@@ -19,6 +18,7 @@
 		941E077A1AB9D4300081FB24 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07791AB9D4300081FB24 /* Contact.m */; };
 		941E077D1AB9D6280081FB24 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E077C1AB9D6280081FB24 /* ContactManager.m */; };
 		941E07821AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */; };
+		9441AF7D1ABC59C40033A61D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9441AF7C1ABC59C40033A61D /* Images.xcassets */; };
 		94842F411AB9F06C00CAC170 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F401AB9F06C00CAC170 /* AddressBookUI.framework */; };
 		94842F431AB9F07000CAC170 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F421AB9F07000CAC170 /* AddressBook.framework */; };
 		94842F451AB9FAE800CAC170 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94842F441AB9FAE800CAC170 /* Realm.framework */; };
@@ -39,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		940882221ABC12EB00FA39FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../../.Trash/Images.xcassets; sourceTree = "<group>"; };
 		941E07461AB9BA9D0081FB24 /* FollowMyDebt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowMyDebt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941E074A1AB9BA9D0081FB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		941E074B1AB9BA9D0081FB24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		941E077C1AB9D6280081FB24 /* ContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactManager.m; sourceTree = "<group>"; };
 		941E07801AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactWithDebtTableViewCell.h; sourceTree = "<group>"; };
 		941E07811AB9DDAE0081FB24 /* ContactWithDebtTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactWithDebtTableViewCell.m; sourceTree = "<group>"; };
+		9441AF7C1ABC59C40033A61D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		94842F401AB9F06C00CAC170 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		94842F421AB9F07000CAC170 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		94842F441AB9FAE800CAC170 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				941E076F1AB9CF530081FB24 /* ListDebtTableViewController.h */,
 				941E07701AB9CF530081FB24 /* ListDebtTableViewController.m */,
 				941E07581AB9BA9D0081FB24 /* LaunchScreen.xib */,
-				940882221ABC12EB00FA39FD /* Images.xcassets */,
+				9441AF7C1ABC59C40033A61D /* Images.xcassets */,
 				941E07491AB9BA9D0081FB24 /* Supporting Files */,
 			);
 			path = FollowMyDebt;
@@ -279,7 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				940882231ABC12EB00FA39FD /* Images.xcassets in Resources */,
+				9441AF7D1ABC59C40033A61D /* Images.xcassets in Resources */,
 				941E07551AB9BA9D0081FB24 /* Main.storyboard in Resources */,
 				941E075A1AB9BA9D0081FB24 /* LaunchScreen.xib in Resources */,
 			);
